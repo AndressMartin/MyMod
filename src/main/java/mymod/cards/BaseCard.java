@@ -1,10 +1,10 @@
-package basicmod.cards;
+package mymod.cards;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
-import basicmod.BasicMod;
-import basicmod.util.CardStats;
+import mymod.BasicMod;
+import mymod.util.CardStats;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,8 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-import static basicmod.util.GeneralUtils.removePrefix;
-import static basicmod.util.TextureLoader.getCardTextureString;
+import static mymod.util.GeneralUtils.removePrefix;
+import static mymod.util.TextureLoader.getCardTextureString;
 
 
 public abstract class BaseCard extends CustomCard {
