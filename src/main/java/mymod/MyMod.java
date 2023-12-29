@@ -4,8 +4,11 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import mymod.cards.BaseCard;
 import mymod.character.TheNimbus;
+import mymod.monsters.NotLagavulin;
 import mymod.util.GeneralUtils;
 import mymod.util.KeywordInfo;
 import mymod.util.TextureLoader;
@@ -80,6 +83,10 @@ public class MyMod implements
         //Set up the mod information displayed in the in-game mods menu.
         //The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+
+        // Add a single monster encounter
+        BaseMod.addMonster(NotLagavulin.ID, () -> new NotLagavulin());
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(NotLagavulin.ID, 5));
     }
 
     /*----------Localization----------*/
@@ -179,6 +186,9 @@ public class MyMod implements
     }
     public static String characterPath(String file) {
         return resourcesFolder + "/images/character/" + file;
+    }
+    public static String monsterpath(String file) {
+        return resourcesFolder + "/images/monsters/" + file;
     }
     public static String powerPath(String file) {
         return resourcesFolder + "/images/powers/" + file;
