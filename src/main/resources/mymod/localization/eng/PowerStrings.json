@@ -4,5 +4,13 @@
     "DESCRIPTIONS": [
       "You are Very Cool and Strong."
     ]
+  },
+  "${modID}:Dodge": {
+    "NAME": "Dodge",
+    "DESCRIPTIONS": [
+      "Take 0 damage",
+      " from the next attack and lose 1 stack.",
+      " Lasts for 1 turn."
+    ]
   }
 }

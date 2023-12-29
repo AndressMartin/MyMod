@@ -1,9 +1,8 @@
 package mymod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import mymod.character.TheNimbus;
 import mymod.util.CardStats;
 
@@ -24,12 +23,12 @@ public class Defend extends BaseCard {
 
     public Defend() {
         super(ID, info);
-        setMagic(BLOCK, UPG_BLOCK);
+        setBlock(BLOCK, UPG_BLOCK); //Sets the card's Block and how much it changes when upgraded.
         tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
+        addToBot(new GainBlockAction(p, p, block));
     }
 }

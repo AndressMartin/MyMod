@@ -5,9 +5,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import mymod.character.TheNimbus;
+import mymod.powers.Dodge;
 import mymod.util.CardStats;
 
 import java.util.Iterator;
@@ -55,7 +55,7 @@ public class Vanish extends BaseCard {
 
         if (IsNormalEncounter()) {
             AbstractDungeon.getCurrRoom().smoked = true;
-            this.addToBot(new VFXAction(new SmokeBombEffect(p.hb.cX, p.hb.cY)));
+            addToBot(new VFXAction(new SmokeBombEffect(p.hb.cX, p.hb.cY)));
             p.hideHealthBar();
             p.isEscaping = true;
             p.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
@@ -63,7 +63,7 @@ public class Vanish extends BaseCard {
             p.escapeTimer = 2.5F;
         }
         else{
-            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new Dodge(p, magicNumber)));
         }
     }
 }

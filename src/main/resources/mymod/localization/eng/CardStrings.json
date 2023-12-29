@@ -27,10 +27,14 @@
   },
   "${modID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !M! *Block."
+    "DESCRIPTION": "Gain !B! *Block."
   },
   "${modID}:Vanish": {
     "NAME": "Vanish",
     "DESCRIPTION": "If in a non-boss combat, escape without rewards, otherwise gain !M! *Dodge. NL *Exhaust."
+  },
+  "${modID}:HideInPlainSight": {
+    "NAME": "Hide In Plain Sight",
+    "DESCRIPTION": "Gain !M! *Dodge. NL Can’t be played if you played another card this turn."
   }
 }
