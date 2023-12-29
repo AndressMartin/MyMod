@@ -1,12 +1,11 @@
 package mymod;
 
+import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
-import mymod.character.TheExpulse;
+import mymod.cards.BaseCard;
+import mymod.character.TheNimbus;
 import mymod.util.GeneralUtils;
 import mymod.util.KeywordInfo;
 import mymod.util.TextureLoader;
@@ -29,6 +28,7 @@ import java.util.*;
 
 @SpireInitializer
 public class MyMod implements
+        EditCardsSubscriber,
         EditCharactersSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
@@ -50,7 +50,7 @@ public class MyMod implements
     private static final String ENERGY_ORB = characterPath("cardback/energy_orb.png");
     private static final String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
     private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
-    private static final Color cardColor = new Color(129f/255f, 35f/255f, 85f/255f, 1f);
+    private static final Color cardColor = new Color(222f/255f, 240f/255f, 56f/255f, 1f);
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -62,7 +62,7 @@ public class MyMod implements
     public static void initialize() {
         new MyMod();
 
-        BaseMod.addColor(TheExpulse.Enums.CARD_COLOR, cardColor,
+        BaseMod.addColor(TheNimbus.Enums.CARD_COLOR, cardColor,
                 BG_ATTACK, BG_SKILL, BG_POWER, ENERGY_ORB,
                 BG_ATTACK_P, BG_SKILL_P, BG_POWER_P, ENERGY_ORB_P,
                 SMALL_ORB);
@@ -208,7 +208,15 @@ public class MyMod implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new TheExpulse(),
-                CHAR_SELECT_BUTTON, CHAR_SELECT_PORTRAIT, TheExpulse.Enums.THE_EXPULSE);
+        BaseMod.addCharacter(new TheNimbus(),
+                CHAR_SELECT_BUTTON, CHAR_SELECT_PORTRAIT, TheNimbus.Enums.THE_NIMBUS);
+    }
+
+    @Override
+    public void receiveEditCards() {
+        new AutoAdd(modID) //Loads files from this mod
+                .packageFilter(BaseCard.class) //In the same package as this class
+                .setDefaultSeen(true) //And marks them as seen in the compendium
+                .cards(); //Adds the cards
     }
 }

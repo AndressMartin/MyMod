@@ -8,5 +8,29 @@
       "If you need to use it for stuff.",
       "Blizzard is a good example for this."
     ]
+  },
+  "${modID}:EnsnaringStrike": {
+    "NAME": "Ensnaring Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Slow."
+  },
+  "${modID}:Berry": {
+    "NAME": "Berry",
+    "DESCRIPTION": "Heals !M! HP. NL *Exhaust."
+  },
+  "${modID}:Goodberry": {
+    "NAME": "Goodberry",
+    "DESCRIPTION": "When drawn, add !M! *Berries to your hand and *Exhaust."
+  },
+  "${modID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !M! *Block."
+  },
+  "${modID}:Vanish": {
+    "NAME": "Vanish",
+    "DESCRIPTION": "If in a non-boss combat, escape without rewards, otherwise gain !M! *Dodge. NL *Exhaust."
   }
 }

@@ -22,22 +22,23 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import mymod.cards.*;
 
 import java.util.ArrayList;
 
 import static mymod.MyMod.characterPath;
 import static mymod.MyMod.makeID;
 
-public class TheExpulse extends CustomPlayer {
+public class TheNimbus extends CustomPlayer {
     //Stats
     public static final int ENERGY_PER_TURN = 3;
-    public static final int MAX_HP = 70;
-    public static final int STARTING_GOLD = 99;
+    public static final int MAX_HP = 82;
+    public static final int STARTING_GOLD = 40;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
 
     //Strings
-    private static final String ID = makeID("TheExpulse"); //This should match whatever you have in the CharacterStrings.json file
+    private static final String ID = makeID("TheNimbus"); //This should match whatever you have in the CharacterStrings.json file
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
@@ -51,15 +52,15 @@ public class TheExpulse extends CustomPlayer {
         //These are used to identify your character, as well as your character's card color.
         //Library color is basically the same as card color, but you need both because that's how the game was made.
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_EXPULSE;
-        @SpireEnum(name = "EXPULSE_PURPLE_COLOR") // These two MUST match. Change it to something unique for your character.
+        public static AbstractPlayer.PlayerClass THE_NIMBUS;
+        @SpireEnum(name = "NIMBUS_PURPLE_COLOR") // These two MUST match. Change it to something unique for your character.
         public static AbstractCard.CardColor CARD_COLOR;
-        @SpireEnum(name = "EXPULSE_PURPLE_COLOR") @SuppressWarnings("unused")
+        @SpireEnum(name = "NIMBUS_PURPLE_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
-    public TheExpulse() {
-        super(NAMES[0], Enums.THE_EXPULSE,
+    public TheNimbus() {
+        super(NAMES[0], Enums.THE_NIMBUS,
                 new CustomEnergyOrb(null, null, null), //Energy Orb
                 new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
 
@@ -81,11 +82,17 @@ public class TheExpulse extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(Strike_Red.ID);
-        retVal.add(Strike_Red.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Neutralize.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(EnsnaringStrike.ID);
+        retVal.add(Vanish.ID);
+        retVal.add(Goodberry.ID);
 
         return retVal;
     }
@@ -198,6 +205,6 @@ public class TheExpulse extends CustomPlayer {
     @Override
     public AbstractPlayer newInstance() {
         //Makes a new instance of your character class.
-        return new TheExpulse();
+        return new TheNimbus();
     }
 }
