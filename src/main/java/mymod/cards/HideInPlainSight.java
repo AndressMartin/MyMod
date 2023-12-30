@@ -41,7 +41,6 @@ public class HideInPlainSight extends BaseCard {
     @Override
     public void atTurnStart() {
         super.atTurnStart();
-        System.out.println("CanUse IS BEING SET TO : " + true);
         canUse = true;
     }
 
@@ -53,7 +52,6 @@ public class HideInPlainSight extends BaseCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        System.out.println("CanUse: " + canUse);
         return super.canUse(p, m) && canUse;
     }
 }

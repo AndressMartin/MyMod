@@ -36,5 +36,9 @@
   "${modID}:HideInPlainSight": {
     "NAME": "Hide In Plain Sight",
     "DESCRIPTION": "Gain !M! *Dodge. NL Can’t be played if you played another card this turn."
+  },
+  "${modID}:Volley": {
+    "NAME": "Volley",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
   }
 }
