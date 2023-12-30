@@ -4,6 +4,7 @@ import basemod.animations.SpriterAnimation;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import static mymod.MyMod.monsterpath;
@@ -71,6 +73,13 @@ public class NotLagavulin extends AbstractMonster
         }
         this.damage.add(new DamageInfo(this, this.normalDamage));
         this.damage.add(new DamageInfo(this, this.buffAttackDamage));
+    }
+
+    @Override
+    public void usePreBattleAction() {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ThornsPower(this, buff)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IntangiblePower(this, 3)));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, 30));
     }
 
     @Override

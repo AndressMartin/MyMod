@@ -86,14 +86,11 @@ public class TheNimbus extends CustomPlayer {
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
+        retVal.add(SongwovenShot.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(EnsnaringStrike.ID);
-        retVal.add(Vanish.ID);
         retVal.add(Goodberry.ID);
-        retVal.add(HideInPlainSight.ID);
 
         return retVal;
     }

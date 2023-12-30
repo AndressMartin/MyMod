@@ -40,5 +40,13 @@
   "${modID}:Volley": {
     "NAME": "Volley",
     "DESCRIPTION": "Deal !D! damage to ALL enemies."
+  },
+  "${modID}:SongwovenShot": {
+  "NAME": "Songwoven Shot",
+  "DESCRIPTION": "Deal !D! *TRUE damage."
+  },
+  "${modID}:TRUEDAMAGE": {
+    "NAME": "True Damage",
+    "DESCRIPTION": "True Damage."
   }
 }

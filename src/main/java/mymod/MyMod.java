@@ -86,7 +86,7 @@ public class MyMod implements
 
         // Add a single monster encounter
         BaseMod.addMonster(NotLagavulin.ID, () -> new NotLagavulin());
-        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(NotLagavulin.ID, 5));
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(NotLagavulin.ID, 100));
     }
 
     /*----------Localization----------*/
