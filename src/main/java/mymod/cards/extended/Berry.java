@@ -1,4 +1,4 @@
-package mymod.cards;
+package mymod.cards.extended;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

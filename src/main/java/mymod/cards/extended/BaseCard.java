@@ -1,4 +1,4 @@
-package mymod.cards;
+package mymod.cards.extended;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;

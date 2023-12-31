@@ -3,16 +3,8 @@ package mymod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
-import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.dungeons.Exordium;
-import com.megacrit.cardcrawl.monsters.MonsterInfo;
-import mymod.cards.BaseCard;
-import mymod.character.TheNimbus;
-import mymod.monsters.NotLagavulin;
-import mymod.util.GeneralUtils;
-import mymod.util.KeywordInfo;
-import mymod.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -21,7 +13,16 @@ import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
+import mymod.cards.extended.BaseCard;
+import mymod.character.TheNimbus;
+import mymod.monsters.NotLagavulin;
+import mymod.spireModifications.AbstractMonsterModifications;
+import mymod.util.GeneralUtils;
+import mymod.util.KeywordInfo;
+import mymod.util.TextureLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
@@ -83,10 +84,10 @@ public class MyMod implements
         //Set up the mod information displayed in the in-game mods menu.
         //The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
-
         // Add a single monster encounter
         BaseMod.addMonster(NotLagavulin.ID, () -> new NotLagavulin());
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(NotLagavulin.ID, 100));
+        AbstractMonsterModifications.Initialize();
     }
 
     /*----------Localization----------*/
