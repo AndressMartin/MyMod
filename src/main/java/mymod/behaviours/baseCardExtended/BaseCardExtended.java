@@ -1,10 +1,9 @@
-package mymod.cards;
+package mymod.behaviours.baseCardExtended;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import mymod.cards.extended.BaseCard;
-import mymod.cards.extended.CardUseListener;
 import mymod.util.CardStats;
 
 import java.util.ArrayList;
@@ -12,8 +11,7 @@ import java.util.List;
 
 public class BaseCardExtended extends BaseCard {
 
-    // Static list of listeners
-    private static List<CardUseListener> listeners = new ArrayList<>();
+    private static final List<CardUseListener> listeners = new ArrayList<>();
 
     public BaseCardExtended(String ID, CardStats info) {
         super(ID, info);
@@ -31,9 +29,9 @@ public class BaseCardExtended extends BaseCard {
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        System.out.println("OnPlayCard " + c.cardID);
         if (c != this)
             return;
-        System.out.println("OnPlayCard " + c.cardID);
         System.out.println("Listeners " + listeners.size());
         // Notify all listeners
         for (CardUseListener listener : listeners) {

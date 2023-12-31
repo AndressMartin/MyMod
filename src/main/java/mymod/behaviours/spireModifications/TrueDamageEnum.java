@@ -1,4 +1,4 @@
-package mymod.spireModifications;
+package mymod.behaviours.spireModifications;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.DamageInfo;

@@ -3,14 +3,12 @@ package mymod.cards.extended;
 import com.evacipated.cardcrawl.mod.stslib.damagemods.DamageModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import mymod.cards.BaseCardExtended;
+import mymod.behaviours.baseCardExtended.BaseCardExtended;
 import mymod.character.TheNimbus;
 import mymod.modifiers.TrueDamage;
-import mymod.spireModifications.TrueDamageEnum;
 import mymod.util.CardStats;
 
 public class SongwovenShot extends BaseCardExtended {
@@ -37,6 +35,6 @@ public class SongwovenShot extends BaseCardExtended {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
-        addToTop(new DamageAction(m, new DamageInfo(p, damage, TrueDamageEnum.TRUE_DAMAGE), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToTop(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 }

@@ -78,7 +78,7 @@ public class NotLagavulin extends AbstractMonster
     @Override
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ThornsPower(this, buff)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IntangiblePower(this, 3)));
+//        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new IntangiblePower(this, 3)));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, 30));
     }
 

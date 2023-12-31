@@ -16,10 +16,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
+import mymod.behaviours.baseCardExtended.BaseCardExtendedListener;
 import mymod.cards.extended.BaseCard;
 import mymod.character.TheNimbus;
 import mymod.monsters.NotLagavulin;
-import mymod.spireModifications.AbstractMonsterModifications;
 import mymod.util.GeneralUtils;
 import mymod.util.KeywordInfo;
 import mymod.util.TextureLoader;
@@ -87,7 +87,7 @@ public class MyMod implements
         // Add a single monster encounter
         BaseMod.addMonster(NotLagavulin.ID, () -> new NotLagavulin());
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(NotLagavulin.ID, 100));
-        AbstractMonsterModifications.Initialize();
+        BaseCardExtendedListener.Initialize();
     }
 
     /*----------Localization----------*/
