@@ -6,15 +6,32 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import mymod.MyMod;
 
+import java.util.ArrayList;
+
 public class TrueDamage extends AbstractDamageModifier {
     public static final String ID = MyMod.makeID("TrueDamage");
     public final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     TooltipInfo trueDamageTooltip = null;
 
+    //TODO: Check if this should be added by a power card
+//    @Override
+//    public boolean ignoresThorns() {
+//        return true;
+//    }
+
+    //This hook allows up to add a custom tooltip to any cards it is added to.
+    //In this case, we are using cardstrings to get the localized data
     @Override
-    public boolean ignoresThorns() {
-        return true;
+    public ArrayList<TooltipInfo> getCustomTooltips() {
+        if (trueDamageTooltip == null) {
+            trueDamageTooltip = new TooltipInfo(cardStrings.DESCRIPTION, cardStrings.EXTENDED_DESCRIPTION[0]);
+        }
+
+        ArrayList<TooltipInfo> tooltips = new ArrayList<>();
+        tooltips.add(trueDamageTooltip);
+
+        return tooltips;
     }
 
     //This allows us to add an stslib descriptor to the card

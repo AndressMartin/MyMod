@@ -45,8 +45,9 @@
   "NAME": "Songwoven Shot",
   "DESCRIPTION": "Deal !D! *TRUE damage."
   },
-  "${modID}:TRUEDAMAGE": {
+  "${modID}:TrueDamage": {
     "NAME": "True Damage",
-    "DESCRIPTION": "True Damage."
+    "DESCRIPTION": "True Damage",
+    "EXTENDED_DESCRIPTION": ["Unaffected by effects that decrease damage."]
   }
 }
