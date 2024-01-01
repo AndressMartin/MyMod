@@ -16,10 +16,12 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import mymod.behaviours.baseCardExtended.BaseCardExtendedListener;
 import mymod.cards.extended.BaseCard;
 import mymod.character.TheNimbus;
 import mymod.monsters.NotLagavulin;
+import mymod.relics.BaseRelic;
 import mymod.util.GeneralUtils;
 import mymod.util.KeywordInfo;
 import mymod.util.TextureLoader;
@@ -32,6 +34,7 @@ import java.util.*;
 
 @SpireInitializer
 public class MyMod implements
+        EditRelicsSubscriber,
         EditCardsSubscriber,
         EditCharactersSubscriber,
         EditStringsSubscriber,
@@ -229,5 +232,22 @@ public class MyMod implements
                 .packageFilter(BaseCard.class) //In the same package as this class
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
+    }
+
+    @Override
+    public void receiveEditRelics() { //somewhere in the class
+        new AutoAdd(modID) //Loads files from this mod
+                .packageFilter(BaseRelic.class) //In the same package as this class
+                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
+                    if (relic.pool != null)
+                        BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
+                    else
+                        BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
+
+                    //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
+                    //If you want all your relics to be visible by default, just remove this if statement.
+                    if (info.seen)
+                        UnlockTracker.markRelicAsSeen(relic.relicId);
+                });
     }
 }

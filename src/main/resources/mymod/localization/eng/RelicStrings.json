@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
+  },
+  "${modID}:InsidersMap": {
+    "NAME": "Insider's Map",
+    "FLAVOR": "Residents of the Spire sure have benefits.",
+    "DESCRIPTIONS": [
+      "When choosing a path, you can travel backwards if the path is unexplored."
+    ]
   }
 }

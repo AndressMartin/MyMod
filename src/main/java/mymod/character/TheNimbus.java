@@ -24,6 +24,7 @@ import mymod.cards.extended.Defend;
 import mymod.cards.extended.Goodberry;
 import mymod.cards.extended.SongwovenShot;
 import mymod.cards.extended.Strike;
+import mymod.relics.InsidersMap;
 
 import java.util.ArrayList;
 
@@ -100,7 +101,7 @@ public class TheNimbus extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(BurningBlood.ID);
+        retVal.add(InsidersMap.ID);
 
         return retVal;
     }
