@@ -19,18 +19,19 @@ public class MapRoomNode_WingedPatch {
 
     @SpirePrefixPatch
     public static SpireReturn<Boolean> WingedPatch(MapRoomNode __instance, MapRoomNode node){
-        Iterator var2 = __instance.getEdges().iterator();
-        boolean hasRelic = AbstractDungeon.player.hasRelic(InsidersMap.ID) ||
-                (AbstractDungeon.player.hasRelic(WingBoots.ID) ||
-                AbstractDungeon.player.getRelic(WingBoots.ID).counter > 0);
-        MapEdge edge;
-        do {
-            if (!var2.hasNext()) {
-                return SpireReturn.Return(Boolean.FALSE);
-            }
+        boolean hasRelic = AbstractDungeon.player.hasRelic(InsidersMap.ID);
+        if(hasRelic){
+            Iterator var2 = __instance.getEdges().iterator();
+            MapEdge edge;
+            do {
+                if (!var2.hasNext()) {
+                    return SpireReturn.Return(Boolean.FALSE);
+                }
 
-            edge = (MapEdge)var2.next();
-        } while(node.y != edge.dstY -2 || !hasRelic || node.taken || !node.isConnectedTo(__instance));
-        return SpireReturn.Return(Boolean.TRUE);
+                edge = (MapEdge)var2.next();
+            } while(node.y != edge.dstY - 2 || node.taken || !node.isConnectedTo(__instance));
+            return SpireReturn.Return(Boolean.TRUE);
+        }
+        return SpireReturn.Continue();
     }
 }
