@@ -8,7 +8,7 @@
   },
   "${modID}:InsidersMap": {
     "NAME": "Insider's Map",
-    "FLAVOR": "Residents of the Spire sure have benefits.",
+    "FLAVOR": "A wise hunter explores but never lingers for too long.",
     "DESCRIPTIONS": [
       "When choosing a path, you can travel backwards if the path is unexplored."
     ]
